@@ -7,7 +7,7 @@ const fs = require("fs");
 
 
 let user;
-fs.readFile("database/user.json", "utf-8", (err, date) => {
+fs.readFile("database/user.json", "utf-8",   (err, date) => {
     if (err) {
         console.log("ERR");
     } else {
@@ -16,7 +16,6 @@ fs.readFile("database/user.json", "utf-8", (err, date) => {
 });
 
 
-// 1 kirish codle
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -40,6 +39,7 @@ app.get('/author', (req, res) => {
 app.get("/", function(req, res) {
     res.render("harid");
 })
+
 
 const server = http.createServer(app);
 let PORT = 3000;
