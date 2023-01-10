@@ -6,7 +6,7 @@ function findBig(arr) {
             big = arr[i]
         }
     }
-    return big
+    return arr.indexOf(big);
 }
 const javob = findBig([0, 5, 11, 43, 292, 4, 6,]);
 console.log(javob)
