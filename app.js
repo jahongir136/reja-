@@ -1,18 +1,17 @@
-console.log('web server');
-const { json } = require("express");
+
 const express = require("express");
 const app = express();
-const fs = require("fs");
+//const fs = require("fs");
 
 
-let user;
-fs.readFile("database/user.json", "utf-8",   (err, date) => {
-    if (err) {
-        console.log("ERR");
-    } else {
-        user = JSON.parse(date) 
-    }
-});
+// let user;
+// fs.readFile("database/user.json", "utf-8",   (err, date) => {
+//     if (err) {
+//         console.log("ERR");
+//     } else {
+//         user = JSON.parse(date) 
+//     }
+// });
 
 //MongoDB chaqrish
 const db = require("./server").db();
@@ -30,18 +29,35 @@ app.set("view engine", "ejs");
 
 // 4 routing code 
 app.post("/create-item", (req, res) => {
-    console.log(req.body);
-    res.json({test: "success"})
-})
+    console.log("user entered /creat-items");
+   console.log(req.body);
+   const new_reja = req.body.reja;
+   db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+     if(err) {
+        console.log(err);
+        res.end('somthing went wrong');
+     } else {
+        res.end("successfully added");
+     }
+   });
+});
 
-app.get('/author', (req, res) => {
-  res.render('author', { user: user});
-})
+app.get("/", function (req, res) {
+    console.log("user entered /");
+    db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+     if (err) {
+        console.log(err);
+        res.end("something went wrong");
+     } else {
+        
+        res.render("reja", {items: data});
+     }  
+    });
+});
 
-app.get("/", function(req, res) {
-    res.render("reja");
-})
 
-module.exports = app;
+module.exports = app; 
 
 

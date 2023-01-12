@@ -63,18 +63,4 @@
 // run();
 
 
-function maslahatBering(num, callback) {
-  if(typeof num !== "num") callback("raqam bosin", null);
-  else if  (num > 100) callback(null, "100dan kotta");
-  else {
-    callback(null, "100dan kichkina");
-    
-  } 
-  }
-  maslahatBering(100,(err, date) => {
-      if (err) console.log("ERROR", err);
-            else {
-                console.log("javob:", data);
-            }
-        });
- 
+
