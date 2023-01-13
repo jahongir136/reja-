@@ -1,4 +1,24 @@
 
+//   H-Task  //
+
+function reverseString(a) {
+    return a.split("").reverse().join("")
+  }   
+  console.log(reverseString("Jahogir"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // console.log("train js ishga tushdi")
 // const list = [
     
