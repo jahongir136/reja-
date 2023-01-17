@@ -39,7 +39,8 @@ document.addEventListener("click", function (e) {
 console.log(e.target);
 if (e.target.classList.contains("delete-me")) {
   if (confirm("Aniq ochirmoqchimsiz?")) {
-        axios.post("/delete-item", {id: e.target.getAttribute("data-id")}).then((respose) => {
+        axios.post("/delete-item", {id: e.target.getAttribute("data-id")})
+        .then((respose) => {
          console.log(respose.data);
          e.target.parentElement.parentElement.remove();
 })
@@ -54,21 +55,24 @@ if (e.target.classList.contains("delete-me")) {
 if(e.target.classList.contains("edit-me")) {
     let userInput = prompt("ozgartrish kriting", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
   if (userInput) {
-        axios.post("/edit-item", {id: e.target.getAttribute("data-id"), new_input: userInput, }).then(response => {
+        axios
+        .post("/edit-item", { id: e.target.getAttribute("data-id"), new_input: userInput, })
+         .then((response) => {
             
         console.log(response.data);
         e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
-        }).catch(err => {
+        })
+        .catch((err) => {
        console.log("iltimos qaytadan harakat qling");
       
-        })
+        });
     }
     
 }
 }); 
 
 document.getElementById("clean-all").addEventListener("click", function() {
-    axios.post("/delete-all", { delete_all: true }).then(respose => {
+    axios.post("/delete-all", { delete_all: true }).then((respose) => {
         alert(respose.data.state);
         document.location.reload();
     });
