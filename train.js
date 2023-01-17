@@ -1,18 +1,15 @@
-const word = "salom nima gap"
 
-const soz = "salom gap"
-console.log(find(soz))
+// I - Task // 
 
-
-function find(v) {
-    console.log(v)
+let getPositive = ([0, -15, 5, -3, 2, -8, 9, -11]); 
+function positiveNumbers(arr) {
+const positiveNumbers = arr => arr.filter(num => num > 0);
+  return arr.filter(function(num) {
+    return num > 0;
+  });
 }
+console.log(positiveNumbers(getPositive)); 
 
-// function jahon(a, b) {
-//     const c = a * b;
-//     console.log(c);
-// }
-// jahon(3, 5);
 
 
 
