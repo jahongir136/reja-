@@ -1,21 +1,28 @@
+const word = "salom nima gap"
+
+const soz = "salom gap"
+console.log(find(soz))
+
+
+function find(v) {
+    console.log(v)
+}
+
+// function jahon(a, b) {
+//     const c = a * b;
+//     console.log(c);
+// }
+// jahon(3, 5);
+
+
+
 
 //   H-Task  //
 
-function reverseString(a) {
-    return a.split("").reverse().join("")
-  }   
-  console.log(reverseString("Jahogir"));
-
-
-
-
-
-
-
-
-
-
-
+// function reverseString(a) {
+//     return a.split("").reverse().join("")
+//   }   
+//   console.log(reverseString("Jahogir"));
 
 
 

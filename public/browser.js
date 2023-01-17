@@ -1,3 +1,5 @@
+
+
 console.log("FrontEnd JS ishga tushdi");
 
 function itemTemplate(item) {
@@ -41,7 +43,7 @@ if (e.target.classList.contains("delete-me")) {
          console.log(respose.data);
          e.target.parentElement.parentElement.remove();
 })
-   .catch((err) => {
+.catch((err) => {
         console.log("iltimos qaytadan harakat qling");
            
         });
@@ -50,7 +52,24 @@ if (e.target.classList.contains("delete-me")) {
 //edit oper
 
 if(e.target.classList.contains("edit-me")) {
-    alert("siz edit tugmasni bosdingiz");
+    let userInput = prompt("ozgartrish kriting", e.target.parentElement.parentElement.querySelector(".item-text").innerHTML);
+  if (userInput) {
+        axios.post("/edit-item", {id: e.target.getAttribute("data-id"), new_input: userInput, }).then(response => {
+            
+        console.log(response.data);
+        e.target.parentElement.parentElement.querySelector(".item-text").innerHTML = userInput;
+        }).catch(err => {
+       console.log("iltimos qaytadan harakat qling");
+      
+        })
+    }
+    
 }
 }); 
 
+document.getElementById("clean-all").addEventListener("click", function() {
+    axios.post("/delete-all", { delete_all: true }).then(respose => {
+        alert(respose.data.state);
+        document.location.reload();
+    });
+});
