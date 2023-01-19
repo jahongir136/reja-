@@ -1,14 +1,34 @@
 
+// J - TASK // 
+
+function chack(x) {
+    if (x == 0) {
+      return 0;
+    } else if (x < 0) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
+  console.log(chack(5));   
+  console.log(chack(-5));   
+  console.log(chack(0));
+
+
+
+
+
+
 // I - Task // 
 
-let getPositive = ([0, -15, 5, -3, 2, -8, 9, -11]); 
-function positiveNumbers(arr) {
-const positiveNumbers = arr => arr.filter(num => num > 0);
-  return arr.filter(function(num) {
-    return num > 0;
-  });
-}
-console.log(positiveNumbers(getPositive)); 
+// let getPositive = ([0, -15, 5, -3, 2, -8, 9, -11]); 
+// function positiveNumbers(arr) {
+// const positiveNumbers = arr => arr.filter(num => num > 0);
+//   return arr.filter(function(num) {
+//     return num > 0;
+//   });
+// }
+// console.log(positiveNumbers(getPositive)); 
 
 
 
